@@ -1,0 +1,26 @@
+{
+  "name": "machool-assignment",
+  "version": "1.0.0",
+  "description": "REST service to return longitude, latitude, elevation, timezone, UTC offset for given location",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test/locations.test.js"
+  },
+  "keywords": [
+    "rest",
+    "locations",
+    "node",
+    "express"
+  ],
+  "author": "Oisín Foley",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "sinon": "^7.5.0"
+  }
+}
