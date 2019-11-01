@@ -61,9 +61,9 @@ getTimezoneInfo = (lat, lng) => {
       }
       body = JSON.parse(body);
       let { timeZoneId, rawOffset } = body;
-      let offsetHours = rawOffset / 3600;
+      let offsetHoursUTC = rawOffset / 3600;
 
-      resolve({ timeZoneId, offsetHours });
+      resolve({ timeZoneId, offsetHoursUTC });
     });
   });
 };

@@ -27,10 +27,10 @@ router.post('/', (req, res, next) => {
       Promise.all(promises)
         .then(data => {
             // destructuring for data[0].elevation and
-            // data[1].timeZoneId, data[1].offsetHours
-            let [ { elevation }, { timeZoneId, offsetHours } ] = data;
+            // data[1].timeZoneId, data[1].offsetHoursUTC
+            let [ { elevation }, { timeZoneId, offsetHoursUTC } ] = data;
             let responseData = {
-              lat, lng, elevation, timeZoneId, offsetHours
+              lat, lng, elevation, timeZoneId, offsetHoursUTC
             };
             res.json({ data: responseData })
         })
