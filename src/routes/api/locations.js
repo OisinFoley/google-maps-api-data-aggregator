@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const validationKeys = require('../../utils/validation-keys');
-const { validateArgs } = require('../../utils/validate-inputs');
+const validationKeys = require('../../utils/validation/input-keys');
+const { validateArgs } = require('../../utils/validation/validate-inputs');
 const { objectIsEmpty } = require('../../utils/object-is-empty');
 const { getGeocodeInfo, getElevationInfo, getTimezoneInfo } = require('../../services/location-info');
 
@@ -21,9 +21,10 @@ router.post('/', (req, res, next) => {
   getGeocodeInfo(reqBodyArgs)
     .then(data => {
       const { lat, lng } = data;
-      // both funcs return a promise, allowing us to call Promise.all further down
+      
+      // pushing funcs that return a promise to promises,
+      // allowing us to call Promise.all further down
       promises.push(getElevationInfo(lat, lng), getTimezoneInfo(lat, lng));
-
       Promise.all(promises)
         .then(data => {
             // destructuring for data[0].elevation and
